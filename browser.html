@@ -70,12 +70,11 @@
                         <h1>{{ name }}</h1>
                         <h4> Kid Sizes available : {{Kid_sizes}}<h4>
                         <h4> Adult Sizes available : {{Adult_sizes}}<h4>
-                        <p>Click the button to demonstrate the prompt box.</p>
+
 
                         <button onclick="myFunction()">Find your size</button>
 
-                        <p id="demo"></p>
-
+                        <h1 id="demo"></h1>
                 </div>
                 {{ /Shoes }}
         </div>
@@ -85,8 +84,7 @@
         function myFunction() {
             var person = prompt("Please enter your Size", "");
             if (size != null) {
-                document.getElementById("demo").innerHTML =
-                "We have size " + person + "! Would you like to buy today?";
+                document.getElementById("demo").innerHTML = "We have size " + person + "! Would you like to buy today?";
             }
         }
     </script>
