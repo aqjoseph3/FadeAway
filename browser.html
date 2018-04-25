@@ -1,19 +1,110 @@
-<h2>FadeAway's</h2>
-<h3>Nike Sb</h3>
-<h4>solar editions</h4>
-<p><img src="https://img.etsystatic.com/il/20e5cc/1064686715/il_340x270.1064686715_srzp.jpg?version=0" height="100" /></p>
-<p><a href="https://codenvy.io/dashboard/#/ide/aqjoseph/FadeAways">Check  avalible sizes </a></p>
-								
-                                
-<h3>AirForce 1</h3>
-<h3>&nbsp;</h3>
-<h4>pearl edition</h4>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDwtQhVPY7WeRHqZeMuTeNTn6tqP6sow5RFCmOeyQQUpdWOqYiSQ" height="100" </img>
-<p><a href="https://codenvy.io/dashboard/#/ide/aqjoseph/FadeAways">Check  avalible sizes</a></p>
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="container">
+
+    <head>
+        <title>Fade Away Browser</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    </head>
+
+    <nav id="navbar" class="position: fixed">
+        <h2 class="text-center">
+            <a href="/index.html">Home</a>
+        </h2>
+    </nav>
 
 
+    <div class="container">
+        <div id="dynamic-content">
+        </div>
+    </div>
 
-<h3>huarache</h3>
-<h4>Marble dye<h4>
-<img src="https://hypb.imgix.net/image/2018/04/nike-air-huarache-marble-dye-1.jpg?q=75&amp;w=1000&amp;fit=clip&amp;auto=compress%2Cformat"height="100"
-<p><a href="https://codenvy.io/dashboard/#/ide/aqjoseph/FadeAways">Check avalible sizes</a></p>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+    <script type="text/javascript">
+        let view = {
+            Shoes: [
+                {
+                    Name: "Nike SB (Solar edition)",
+                    image: "https://img.etsystatic.com/il/20e5cc/1064686715/il_340x270.1064686715_srzp.jpg?version=0",
+                    Kid_sizes: "20",
+                    Adult_sizes: "24"
+                },
+                {
+                    Name: "Air Force 1's (Pearl Edition)",
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDwtQhVPY7WeRHqZeMuTeNTn6tqP6sow5RFCmOeyQQUpdWOqYiSQ",
+                    Kid_sizes: "20",
+                    Adult_sizes: "24"
+                },
+                {
+                    Name: "Huaraches (Marble Dye)",
+                    image: "https://hypb.imgix.net/image/2018/04/nike-air-huarache-marble-dye-1.jpg?q=75&amp;w=1000&amp;fit=clip&amp;auto=compress%2Cformat\"",
+                    Kid_sizes: "20",
+                    Adult_sizes: "24"
+                },
+                {
+                    Name: "Air Max",
+                    image: "https://images.finishline.com/is/image/FinishLine/905348_014_P1?$Main_gray$",
+                    Kid_sizes: "20",
+                    Adult_sizes: "24"
+                }
+
+            ]
+
+        };
+    </script>
+
+     <script type="text/mustache-tmpl" id="browse">
+        <img src="" class="img-fluid rounded" alt="Responsive image"/>
+        <br><br>
+        <h3 class="topic-header">Featured Content</h3>
+        <hr>
+
+        <div class=" container row text-center">
+            {{ #Shoes }}
+                <div class="col">
+                        <img src="{{ image}}" class="img-thumbnail"/>
+                        <h1>{{ name }}</h1>
+                        <h4> Kid Sizes available : {{Kid_sizes}}<h4>
+                        <h4> Adult Sizes available : {{Adult_sizes}}<h4>
+                        <p>Click the button to demonstrate the prompt box.</p>
+
+                        <button onclick="myFunction()">Find your size</button>
+
+                        <p id="demo"></p>
+
+                </div>
+                {{ /Shoes }}
+        </div>
+
+    </script>
+    <script>
+        function myFunction() {
+            var person = prompt("Please enter your Size", "");
+            if (size != null) {
+                document.getElementById("demo").innerHTML =
+                "We have size " + person + "! Would you like to buy today?";
+            }
+        }
+    </script>
+
+
+     <script type="text/javascript">
+        // self-executing function which executes on page load
+        // https://stackoverflow.com/questions/7223002/do-self-executing-functions-run-at-dom-ready
+        (
+            function() {
+                let template = document.getElementById( "browse").textContent;
+                Mustache.parse( template);
+
+                // populate template with data
+                let rendered = Mustache.render( template, view);
+                document.getElementById( "dynamic-content").innerHTML = rendered;
+            }
+        )();
+        </script>
+    </h4>
+</body>
